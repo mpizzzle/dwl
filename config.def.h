@@ -41,11 +41,11 @@ static const char *const autostart[] = {
 
 
 static const Rule rules[] = {
-	/* app_id     title       tags mask     isfloating   alpha            monitor */
+	/* app_id     title       tags mask     isfloating   alpha             isterm  noswallow  monitor */
 	/* examples:
-	{ "firefox",  NULL,       1 << 8,       0,           default_opacity, -1 },
+	{ "firefox",  NULL,       1 << 8,       0,           default_opacity,  0,      1,         -1, },
 	*/
-	{ "Alacritty",NULL,       0,            0,           0.75f, -1 },
+	{ "Alacritty",NULL,       0,            0,           0.75f,            1,      1,         -1, },
 };
 
 /* layout(s) */
