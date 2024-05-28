@@ -27,10 +27,10 @@ static const char *fontattrs    = "dpi=96";
 static pixman_color_t normbarfg = { 0xbbbb, 0xbbbb, 0xbbbb, 0xffff };
 static pixman_color_t normbarbg = { 0x2222, 0x2222, 0x2222, 0xffff };
 static pixman_color_t selbarfg  = { 0xeeee, 0xeeee, 0xeeee, 0xffff };
-static pixman_color_t selbarbg  = { 0x0000, 0x5555, 0x7777, 0xffff };
+static pixman_color_t selbarbg  = { 0x5555, 0x0000, 0x7777, 0xffff };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
-static char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 /* logging */
 static int log_level = WLR_ERROR;
@@ -52,9 +52,11 @@ static const Rule rules[] = {
 /* layout(s) */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "≡",      tile },
+	{ "∅",      NULL },    /* no layout function means floating behavior */
+	{ "○",      monocle },
+	{ "⌽",      spiral },
+	{ "⍉",      dwindle },
 };
 
 /* monitors */
@@ -161,6 +163,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                    XKB_KEY_f,          setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                    XKB_KEY_m,          setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                    XKB_KEY_s,          setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                    XKB_KEY_apostrophe, toggledimming,  {0} },
 	{ MODKEY,                    XKB_KEY_space,      setlayout,      {0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
