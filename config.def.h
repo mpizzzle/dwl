@@ -23,7 +23,7 @@ static const float default_opacity         = 1.0f;
 static const int showbar        = 1; /* 0 means no bar */
 static const int topbar         = 0; /* 0 means bottom bar */
 static const int user_bh        = 20; /* 0 means that dwl will calculate bar height, >= 1 means dwl will use user_bh as bar height */
-static const char *fonts[]      = {"BQN386 Nerd Font:style=Regular:size=10"};
+static const char *fonts[]      = {"DinaRemasterII:style=Medium:size=10"};
 static const char *fontattrs    = "dpi=96";
 static pixman_color_t normbarfg = { 0xbbbb, 0xbbbb, 0xbbbb, 0xffff };
 static pixman_color_t normbarbg = { 0x2222, 0x2222, 0x2222, 0xffff };
@@ -53,8 +53,8 @@ static const Rule rules[] = {
 /* layout(s) */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[≡]",      tile },
-	{ "[∅]",      NULL },    /* no layout function means floating behavior */
+	{ "/ 瓦",      tile },
+	{ "/ 〇",      NULL },    /* no layout function means floating behavior */
 	{ "[○]",      monocle },
 	{ "[⌽]",      spiral },
 	{ "[⍉]",      dwindle },
@@ -140,7 +140,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[] = { "foot", NULL };
-static const char *menucmd[] = { "wmenu-run", "-p", "~>", "-f" ,"BQN386 Nerd Font Regular 10", NULL };//, "-l", "30", NULL };
+static const char *menucmd[] = { "wmenu-run", "-p", "~>", "-f" ,"DinaRemasterII Medium 10", NULL };//, "-l", "30", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
