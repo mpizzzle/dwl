@@ -22,12 +22,13 @@ static const float default_opacity         = 1.0f;
 /* bar */
 static const int showbar        = 1; /* 0 means no bar */
 static const int topbar         = 0; /* 0 means bottom bar */
-static const char *fonts[]      = {"monospace:size=10"};
+static const int user_bh        = 20; /* 0 means that dwl will calculate bar height, >= 1 means dwl will use user_bh as bar height */
+static const char *fonts[]      = {"BQN386 Nerd Font:style=Regular:size=10"};
 static const char *fontattrs    = "dpi=96";
 static pixman_color_t normbarfg = { 0xbbbb, 0xbbbb, 0xbbbb, 0xffff };
 static pixman_color_t normbarbg = { 0x2222, 0x2222, 0x2222, 0xffff };
 static pixman_color_t selbarfg  = { 0xeeee, 0xeeee, 0xeeee, 0xffff };
-static pixman_color_t selbarbg  = { 0x5555, 0x0000, 0x7777, 0xffff };
+static pixman_color_t selbarbg  = { 0x0000, 0x5555, 0x7777, 0xffff };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
 static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
@@ -40,23 +41,23 @@ static const char *const autostart[] = {
         "zsh", "-c", "~/.local/bin/wallpapers.sh ~/documents/wallpapers", NULL
 };
 
-
 static const Rule rules[] = {
 	/* app_id      title tags mask isfloating alpha            isterm noswallow neverdim monitor */
 	/* examples:
 	{ "firefox",   NULL, 1 << 8,   0,         default_opacity, 0,     1,        0,       -1, },
 	*/
-	{ "Alacritty", NULL, 0,        0,         0.75f,           1,     1,        0,       -1, },
+	{ "Alacritty", NULL, 0,        0,         1.0f,            1,     1,        0,       -1, },
+	{ "foot",      NULL, 0,        0,         1.0f,            1,     1,        0,       -1, },
 };
 
 /* layout(s) */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "≡",      tile },
-	{ "∅",      NULL },    /* no layout function means floating behavior */
-	{ "○",      monocle },
-	{ "⌽",      spiral },
-	{ "⍉",      dwindle },
+	{ "[≡]",      tile },
+	{ "[∅]",      NULL },    /* no layout function means floating behavior */
+	{ "[○]",      monocle },
+	{ "[⌽]",      spiral },
+	{ "[⍉]",      dwindle },
 };
 
 /* monitors */
@@ -138,8 +139,8 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[] = { "alacritty", NULL };
-static const char *menucmd[] = { "wmenu-run", NULL };
+static const char *termcmd[] = { "foot", NULL };
+static const char *menucmd[] = { "wmenu-run", "-p", "~>", "-f" ,"BQN386 Nerd Font Regular 10", NULL };//, "-l", "30", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
