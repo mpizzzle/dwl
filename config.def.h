@@ -143,6 +143,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 static const char *termcmd[] = { "foot", NULL };
 static const char *menucmd[] = { "wmenu-run", "-p", "~>", "-f" ,"DinaRemasterII Medium 10", NULL };//, "-l", "30", NULL };
 static const char *printcmd[] = { "flameshot", "gui", NULL };
+static const char *swaylockcmd[] = { "swaylock", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -178,6 +179,7 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,         {.i = WLR_DIRECTION_RIGHT} },
 	{ MODKEY,                    XKB_KEY_Print,      spawn,          {.v = printcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,          spawn,          {.v = swaylockcmd} },
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(          XKB_KEY_2, XKB_KEY_quotedbl,                   1),
 	TAGKEYS(          XKB_KEY_3, XKB_KEY_sterling,                   2),
