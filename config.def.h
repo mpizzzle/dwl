@@ -10,6 +10,7 @@ static const int smartgaps                 = 0;  /* 1 means no outer gap when th
 static int gaps                            = 1;  /* 1 means gaps between windows are added */
 static const unsigned int gappx            = 10; /* gap pixel between windows */
 static const unsigned int borderpx         = 0;  /* border pixel of windows */
+static const int user_bh		           = 30; /* 0 means that dwl will calculate barheight, >= 1 means dwl will use user_bh as the bar height. */
 static const int showbar                   = 1; /* 0 means no bar */
 static const int topbar                    = 1; /* 0 means bottom bar */
 static const char *fonts[]                 = {"monospace:size=10"};
