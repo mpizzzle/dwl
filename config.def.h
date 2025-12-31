@@ -149,6 +149,8 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_p,          spawn,          {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_y,          spawn,          SHCMD("~/.local/bin/wallpapers.sh ~/documents/wallpapers") },
+	{ MODKEY,                    XKB_KEY_o,          spawn,          SHCMD("~/.local/bin/pass-find.sh") },
+	{ MODKEY,                    XKB_KEY_a,          spawn,          SHCMD("~/.local/bin/acento.sh") },
 	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
